@@ -2,22 +2,26 @@ import sys
 import os
 import topsis.topsis.spiders.fetchPrice as fp
 import extractSource as es
+import csv
 
 import importlib, importlib.util
 
-def module_from_file(module_name, file_path):
-    spec = importlib.util.spec_from_file_location(module_name, file_path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
 
 def run_optimizer():
+	def module_from_file(module_name, file_path):
+		spec = importlib.util.spec_from_file_location(module_name, file_path)
+		module = importlib.util.module_from_spec(spec)
+		spec.loader.exec_module(module)
+		return module
+
+
 
 	topsisTool = module_from_file("topsisClass", "./topsis.py")
 
 
 
 	prices = fp.dc_dict
+	
 	dishList = es.createTuple("DishListBreakfast.csv")
 
 
@@ -68,6 +72,11 @@ def run_optimizer():
 	for dish in final_ranking:
 		print(dish)
 
-	f = open("sample.txt", "a")
-	f.write("Now the file has more content!")
-	f.close()
+	
+
+
+	with open("final_rating.csv","w+") as my_csv:
+		csvWriter = csv.writer(my_csv,delimiter=',')
+		csvWriter.writerows(final_ranking)
+
+

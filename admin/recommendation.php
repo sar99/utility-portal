@@ -16,6 +16,9 @@
 
         if(isset($_SESSION['adminid']))
         {
+
+            if(!isset($_GET['display']))
+            {
     ?>
 
         <div id="initial" style="display: flex; flex-direction: row; flex-wrap: wrap;justify-content: center;align-items: center;margin-top: 10vh;">
@@ -41,6 +44,40 @@
 
 
     <?php
+            }
+            else
+            {
+                echo '<table class="table" style="width: 85vw; margin: auto;margin-top: 1vh; ">
+                <thead  style="background-color: #CAEBF2;">
+                    <tr>
+                        <th scope="col">Dish Name</th>
+                        <th scope="col">Ranking</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                $f = fopen("final_rating.csv", "r");
+                $fr = fread($f, filesize("final_rating.csv"));
+                fclose($f);
+                $lines = array();
+                $lines = explode("\n",$fr); // IMPORTANT the delimiter here just the "new line" \r\n, use what u need instead of... 
+
+                for($i=0;$i<count($lines);$i++)
+                {
+                    echo "<tr>";
+                    $cells = array(); 
+                    $cells = explode(",",$lines[$i]); // use the cell/row delimiter what u need!
+                    for($k=0;$k<count($cells);$k++)
+                    {
+                    echo "<td>".$cells[$k]."</td>";
+                    }
+                    // for k end
+                    echo "</tr>";
+                }
+
+                echo '</tbody>
+                </table>';
+
+            }
         }
         else
         {
@@ -75,6 +112,14 @@
             var xhttp = new XMLHttpRequest();
             xhttp.open("GET", url,  true);
             xhttp.send();
+
+            setTimeout(
+            function() {
+            document.getElementById('spinner').style.display='none';
+            window.location.href = "http://localhost/interface/admin/recommendation.php?display";
+            }, 5000);
+
+
         }
     </script>
 </body>
