@@ -20,6 +20,11 @@ import imutils
 import time
 import dlib
 import cv2
+import requests
+import re
+
+myfile = "current_people.txt"
+
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -80,11 +85,18 @@ totalFrames = 0
 totalDown = 0
 totalUp = 0
 
+
+
+
+
 # start the frames per second throughput estimator
 fps = FPS().start()
 
 # loop over frames from the video stream
 while True:
+	totalIn = totalDown - totalUp
+	with open(myfile, 'w') as filetowrite:
+		filetowrite.write(str(totalIn))
 	# grab the next frame and handle if we are reading from either
 	# VideoCapture or VideoStream
 	frame = vs.read()
