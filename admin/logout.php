@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if (isset($_SESSION['yr'])) {
+  if (isset($_SESSION['adminid'])) {
     $_SESSION = array();
 
     if (isset($_COOKIE[session_name()])) {
@@ -10,9 +10,8 @@
     session_destroy();
   
 
-  setcookie('yr', '', time() - 3600);
-  setcookie('rollno', '', time() - 3600);
-  setcookie('batch', '', time() - 3600);
+  setcookie('adminid', '', time() - 3600);
+
 
 echo "<script>window.location.href='index.php';</script>";
 

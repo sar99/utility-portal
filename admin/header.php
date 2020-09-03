@@ -14,19 +14,19 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="complaint.php">File a Complaint</a>
+        <a class="nav-link" href="recommendation.php">Get Menu Recommendations</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="gatepass.php">Apply for Gate Pass</a>
+        <a class="nav-link" href="savefood.php">Save Food</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="ratemeal.php">Rate Last Meal</a>
+        <a class="nav-link" href="gatepass.php">Gate Pass Statuses</a>
       </li>
 
       <?php 
-      if(isset($_SESSION['yr']) && isset($_SESSION['batch']) && isset($_SESSION['roll']) )
+      if(isset($_SESSION['adminid']) )
       {
           ?>
       <li class="nav-item">
@@ -65,12 +65,9 @@
       </div>
       <div class="modal-body">
       <form action="login.php" method="post">
-            <label for="exampleInputPassword1">Roll No.</label>
-              <div class="form-inline">
-                          <input type="text" class="form-control" id="yr" placeholder=" " style="width: 30%;" name="yr" required=""> -
-                          <input type="text" class="form-control" id="batch" placeholder=" " style="width: 30%;" name="batch" required=""> -
-                          <input type="text" class="form-control" id="rollno" placeholder=" " style="width: 30%;" name="rollno" required="">
-                          <small id="emailHelp" class="form-text text-muted">Enter in format: 20XX-XXX-000</small>
+            <label for="exampleInputPassword1">Admin ID</label>
+              <div class="form-group">
+                          <input type="text" class="form-control" id="adminid" placeholder="Enter ID "  name="adminid" required> 
 
               </div><br>
               <div class="form-group">

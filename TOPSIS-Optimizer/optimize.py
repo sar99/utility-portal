@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 import os
 import topsis.topsis.spiders.fetchPrice as fp
@@ -68,3 +70,6 @@ for i in range(0, len(dishListWithoutHeader)):
 for dish in final_ranking:
 	print(dish)
 
+f = open("sample.txt", "a")
+f.write("Now the file has more content!")
+f.close()
