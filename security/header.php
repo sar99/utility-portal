@@ -14,19 +14,15 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="recommendation.php">Get Menu Recommendations</a>
+        <a class="nav-link" href="gatepass.php">Approve Gate Passes</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="savefood.php">Save Food</a>
+        <a class="nav-link" href="out.php">Mark Out</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="gatepass.php">Gate Pass Statuses</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="complaint.php">Complaint Statuses</a>
+        <a class="nav-link" href="in.php">Mark In</a>
       </li>
 
       <li class="nav-item">
@@ -34,7 +30,7 @@
       </li>
 
       <?php 
-      if(isset($_SESSION['adminid']) )
+      if(isset($_SESSION['id']) )
       {
           ?>
       <li class="nav-item">
@@ -73,9 +69,9 @@
       </div>
       <div class="modal-body">
       <form action="login.php" method="post">
-            <label for="exampleInputPassword1">Admin ID</label>
+            <label for="exampleInputPassword1">ID</label>
               <div class="form-group">
-                          <input type="text" class="form-control" id="adminid" placeholder="Enter ID "  name="adminid" required> 
+                          <input type="text" class="form-control" id="id" placeholder="Enter ID "  name="id" required> 
 
               </div><br>
               <div class="form-group">

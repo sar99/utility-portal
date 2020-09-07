@@ -15,7 +15,7 @@
         <a class="nav-link" href="./admin/index.php">Go to Hostel Administration Panel</a>
       </li> 
       <li class="nav-item">
-        <a class="nav-link" href="./security/admin.php">Go to Security Personnel Panel</a>
+        <a class="nav-link" href="./security/index.php">Go to Security Personnel Panel</a>
       </li> 
 
     </ul>
