@@ -25,6 +25,10 @@
         <a class="nav-link" href="ratemeal.php">Rate Last Meal</a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="../">Is Going to Mess Safe?</a>
+      </li>
+
       <?php 
       if(isset($_SESSION['yr']) && isset($_SESSION['batch']) && isset($_SESSION['roll']) )
       {
