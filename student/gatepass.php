@@ -52,13 +52,13 @@
         
         <div class="form-group row">
             <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary" name="submit" style="background-color: #FF3B3F;">Submit Complaint</button>
+            <button type="submit" class="btn btn-primary" name="submit" style="background-color: #FF3B3F;">Submit Application</button>
             </div>
         </div>
     </form>
 
 
-    <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 5vh; font-size: 2.8vh;"> Previous Complaints </div>
+    <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 5vh; font-size: 2.8vh;"> Previous Application </div>
 
 
     <table class="table" style="width: 85vw; margin: auto;margin-top: 1vh; ">

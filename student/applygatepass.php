@@ -4,7 +4,7 @@
 
 <?php
 
-if(isset($_POST['submit']))
+if(isset($_POST['submit']) && isset($_SESSION['yr']))
 {
     $datefrom=err($_POST['leave-from']);
     $datetill=err($_POST['leave-till']);

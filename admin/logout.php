@@ -13,7 +13,7 @@
   setcookie('adminid', '', time() - 3600);
 
 
-echo "<script>window.location.href='index.php';</script>";
+echo "<script>window.location.href='../';</script>";
 
 }
 ?>

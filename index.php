@@ -32,7 +32,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <script integrity="">
+    <script type="text/javascript">
 
 
         var pageExecute = {
@@ -48,16 +48,19 @@
                     success: function (data){
                         pageExecute.fileContents = data;
                         console.log("hI");
+                        console.log(data);
                     }
                 });
             }
         };
 
     </script>
-<script type="text/javascript"> 
-    window.setInterval(function(){
+<script > 
+     window.setInterval(function(){
+
         pageExecute.init();
         document.getElementById("number").innerHTML = (pageExecute.fileContents);
+        console.log(pageExecute.fileContents);
         if(pageExecute.fileContents >=2 )
         {
             if(document.getElementById("alert").classList.contains("alert-success"))
@@ -74,7 +77,8 @@
                 document.getElementById("alert").classList.add("alert-success");
             }
         }
-    },1000); </script>
+    },1000); 
+    </script>
 
 </body>
 </html>

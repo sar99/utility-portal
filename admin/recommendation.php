@@ -23,7 +23,7 @@
 
         <div id="initial" style="display: flex; flex-direction: row; flex-wrap: wrap;justify-content: center;align-items: center;margin-top: 10vh;">
         
-            <div><img src="./img/choice.png" style="width: 600;max-width: 60vw;" /></div>
+            <div><img src="./img/recommendations.png" style="width: 600;max-width: 60vw;" /></div>
             <div><button type="button" class="btn" style="background-color: #FF3B3F;color: white;border-radius: 50px;" onClick="callRecommendations()">Click here to get your recommendations</button></div>
         </div>
 
