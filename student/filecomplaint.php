@@ -6,11 +6,12 @@
 
 if(isset($_POST['submit']))
 {
+    // Sanitise form data
     $title=err($_POST['title']);
     $description=err($_POST['description']);
     $required=err($_POST['required']);
     
-    
+    // Sanitise session data
     $yr=err($_SESSION['yr']);
     $batch=err($_SESSION['batch']);
     $rollno=err($_SESSION['roll']);
@@ -28,7 +29,6 @@ if(isset($_POST['submit']))
         $compStatus = 0;
         $date = date('y-m-d');
 
-        // echo "<script>window.alert('" . $title . $description . $required . $isfemale . $hostel . $room . $compStatus ."');</script>";     
         $sql = "INSERT INTO complaints (title, description, helpBy, isfemale, hostel, room, compStatus, date) VALUES ('$title','$description','$required','$isfemale','$hostel','$room','$compStatus', '$date')";
         $result=mysqli_query($conn,$sql);
         if($result==false)

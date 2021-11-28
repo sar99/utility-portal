@@ -12,15 +12,22 @@
 <body style="font-family: 'Poppins', sans-serif;">
 
     <?php
-        require_once("header.php");
 
-        if(isset($_SESSION['yr']) && isset($_SESSION['batch']) && isset($_SESSION['roll']) )
+        if(!(isset($_SESSION['yr']) && isset($_SESSION['batch']) && isset($_SESSION['roll']) ))
         {
+
+    ?>
+        <script>window.location.href='../';</script>
+    <?php
+        }
+        else
+        {
+            require_once("header.php");
     ?>
 
+    <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 5vh; font-size: 2.8vh;"> Apply For Gate Pass </div>
 
-
-    <form action="applygatepass.php" method="post" style="width: 80vw;margin: auto; margin-top: 10vh;">
+    <form action="applygatepass.php" method="post" style="width: 80vw;margin: auto; margin-top: 3vh;">
 
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Leave From</label>
@@ -58,7 +65,7 @@
     </form>
 
 
-    <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 5vh; font-size: 2.8vh;"> Previous Application </div>
+    <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 7vh; font-size: 2.8vh;"> Previous Application </div>
 
 
     <table class="table" style="width: 85vw; margin: auto;margin-top: 1vh; ">
@@ -139,23 +146,6 @@
             ?>
         </tbody>
     </table>
-
-
-    <?php
-
-        }
-        else
-        {
-
-    ?>
-
-        <div style="margin-top: 15vh;">
-            <img src="./img/login.png" style=" display: block; margin-left: auto; margin-right: auto; width: 900px; max-width: 80vw;"/>
-            <div style="color: #FF3B3F; text-align: center; font-size: 2.5vh;">
-                Login first to go ahead with applying for a Gate Pass.
-            </div>
-        <div>
-
 
     <?php
         }

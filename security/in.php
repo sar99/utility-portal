@@ -12,10 +12,16 @@
 <body style="font-family: 'Poppins', sans-serif;">
 
     <?php
-        require_once("header.php");
 
-        if(isset($_SESSION['id']) )
+        if(!isset($_SESSION['id']) )
         {
+        ?>
+            <script>window.location.href='../';</script>
+        <?php
+        }
+        else{
+
+            require_once("header.php");
 
             $id = err($_SESSION['id']);
 
@@ -80,23 +86,6 @@
             ?>
         </tbody>
     </table>
-
-
-    <?php
-
-        }
-        else
-        {
-
-    ?>
-
-        <div style="margin-top: 15vh;">
-            <img src="./img/login.png" style=" display: block; margin-left: auto; margin-right: auto; width: 900px; max-width: 80vw;"/>
-            <div style="color: #FF3B3F; text-align: center; font-size: 2.5vh;">
-                Login first to go ahead with pending applications for Gate Pass.
-            </div>
-        <div>
-
 
     <?php
         }

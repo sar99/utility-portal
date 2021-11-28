@@ -12,19 +12,28 @@
 <body style="font-family: 'Poppins', sans-serif;">
 
     <?php
-        require_once("header.php");
 
-        if(isset($_SESSION['adminid']))
+        if(!isset($_SESSION['adminid']))
         {
+    ?>
+        <script>window.location.href='../';</script>
+    <?php
+        }
+        else
+        {
+            require_once("header.php");
 
             if(!isset($_GET['display']))
             {
     ?>
 
+        <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 5vh; font-size: 2.8vh;"> Menu Recommendations </div>
+
+
         <div id="initial" style="display: flex; flex-direction: row; flex-wrap: wrap;justify-content: center;align-items: center;margin-top: 10vh;">
         
             <div><img src="./img/recommendations.png" style="width: 600;max-width: 60vw;" /></div>
-            <div><button type="button" class="btn" style="background-color: #FF3B3F;color: white;border-radius: 50px;" onClick="callRecommendations()">Click here to get your recommendations</button></div>
+            <div><button type="button" class="btn" style="background-color: #FF3B3F;color: white;" onClick="callRecommendations()">Click here to get your recommendations</button></div>
         </div>
 
         <div id="spinner" style="display:none;margin: auto;margin-top: 40vh;text-align: center;">
@@ -50,8 +59,9 @@
                 echo '<table class="table" style="width: 85vw; margin: auto;margin-top: 1vh; ">
                 <thead  style="background-color: #CAEBF2;">
                     <tr>
-                        <th scope="col">Dish Name</th>
                         <th scope="col">Ranking</th>
+                        <th scope="col">Dish Name</th>
+                        <th scope="col">Preferrence Factor</th>
                     </tr>
                 </thead>
                 <tbody>';
@@ -66,6 +76,7 @@
                     echo "<tr>";
                     $cells = array(); 
                     $cells = explode(",",$lines[$i]); // use the cell/row delimiter what u need!
+                    echo "<td>".($i+1)."</td>";
                     for($k=0;$k<count($cells);$k++)
                     {
                     echo "<td>".$cells[$k]."</td>";
@@ -78,21 +89,6 @@
                 </table>';
 
             }
-        }
-        else
-        {
-
-    ?>
-
-        <div style="margin-top: 15vh;">
-            <img src="./img/login.png" style=" display: block; margin-left: auto; margin-right: auto; width: 900px; max-width: 80vw;"/>
-            <div style="color: #FF3B3F; text-align: center; font-size: 2.5vh;">
-                Login first to go ahead with getting recommendations.
-            </div>
-        <div>
-
-
-    <?php
         }
     ?>    
 

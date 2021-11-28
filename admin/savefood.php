@@ -12,11 +12,19 @@
 <body style="font-family: 'Poppins', sans-serif;">
 
     <?php
-        require_once("header.php");
 
-        if(isset($_SESSION['adminid']))
+        if(!isset($_SESSION['adminid']))
         {
-            
+    ?>
+
+        <script>window.location.href='../';</script>
+
+    <?php
+        }
+        else
+        {
+            require_once("header.php");
+           
             $arr=array();
             $row = -1;
             if (($handle = fopen("DishListBreakfast.csv", "r")) !== FALSE) {
@@ -51,7 +59,9 @@
 
     ?>
 
-        <div id="initial" style="display: flex; flex-direction: row; flex-wrap: wrap;justify-content: center;align-items: center;margin-top: 10vh;">
+        <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 5vh; font-size: 2.8vh;"> Prediction for Food Preparation </div>
+
+        <div id="initial" style="display: flex; flex-direction: row; flex-wrap: wrap;justify-content: center;align-items: center;margin-top: 5vh;">
         
             <div><img src="./img/choice.png" style="width: 600;max-width: 60vw;" /></div>
             
@@ -63,7 +73,7 @@
                     <select class="form-control form-control-lg" name="time">
                         <option value='breakfast' >Breakfast</option>
                         <option value='lunch' >Lunch</option>
-                        <option value='dinner' >Dinenr</option>
+                        <option value='dinner' >Dinner</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -91,7 +101,7 @@
                         <option value='7' >Sunday</option>
                     </select>
                 </div>
-                <div><button type="button" class="btn" style="background-color: #FF3B3F;color: white;border-radius: 50px;" onClick="getPrediction()">Click here to get the prediction</button></div>
+                <div><button type="button" class="btn" style="background-color: #FF3B3F;color: white;" onClick="getPrediction()">Click here to get the prediction</button></div>
             </div>
         </div>
 
@@ -116,22 +126,6 @@
                 For the specified meal, food should only be made for <span id="percent">78.2</span>% of total <?php echo $totalstudents; ?> boarders in the hostel
             </div> 
         <div>
-
-    <?php
-            
-        }
-        else
-        {
-?>
-
-    <div style="margin-top: 15vh;">
-        <img src="./img/login.png" style=" display: block; margin-left: auto; margin-right: auto; width: 900px; max-width: 80vw;"/>
-        <div style="color: #FF3B3F; text-align: center; font-size: 2.5vh;">
-            Login first to go ahead with getting the prediction.
-        </div>
-    <div>
-
-
 <?php
         }
 ?>    

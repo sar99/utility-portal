@@ -16,7 +16,7 @@ if(isset($_POST['id']) )
      if($num_rows!=0)
       {$_SESSION['id']=$id;
 
-       echo "<script>window.location.href='javascript:history.go(-1)';</script>"; }
+       echo "<script>window.location.href='./gatepass.php';</script>"; }
      else
       {echo "<script>window.alert('Invalid Credentials. Please try again.');</script>";     
         echo "<script>window.location.href='javascript:history.go(-1)';</script>";  

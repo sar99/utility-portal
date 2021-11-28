@@ -1,5 +1,8 @@
 <?php
+    //Start session management
     session_start();
+
+    //SQL Database connections
     $conn=mysqli_connect("localhost","root","","MinorProject")
             or die('Error connecting to MySQL server.'); 
             

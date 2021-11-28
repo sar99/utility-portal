@@ -12,10 +12,19 @@
 <body style="font-family: 'Poppins', sans-serif;">
 
     <?php
-        require_once("header.php");
 
-        if(isset($_SESSION['yr']) && isset($_SESSION['batch']) && isset($_SESSION['roll']) )
+        if(!(isset($_SESSION['yr']) && isset($_SESSION['batch']) && isset($_SESSION['roll']) ))
         {
+        ?>
+
+            <script>window.location.href='../';</script>
+
+        <?php
+        }
+        else
+        {
+            require_once("header.php");
+
             $yr=err($_SESSION['yr']);
             $batch=err($_SESSION['batch']);
             $rollno=err($_SESSION['roll']);
@@ -37,6 +46,8 @@
             if($num_rows!=0)
             {
     ?>
+
+        <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 5vh; font-size: 2.8vh;"> Rate Your Last Meal </div>
 
         <form action="ratemeal.php" method="post" style="display: flex; flex-direction: column; align-items: center;">
             <div style="display: flex;flex-direction: row; flex-wrap: wrap; justify-content: center;margin-left: auto; margin-right: auto;margin-top: 10vh;">
@@ -63,13 +74,13 @@
                     <label class="form-check-label" for="inlineCheckbox3">  
                         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
                             <div style="color: #FF3B3F; text-align: center; font-size: 2.5vh;"> Went out or ordered</div> 
-                            <img src="./img/wentout.png" style=" width: 400px; max-width: 80vw;"/>
+                            <img src="./img/wentout.png" style=" width: 300px; max-width: 60vw;"/>
                         </div>
                     </label>
                 </div>
             </div>    
             <div>
-                <input type="submit" value="Submit the rating" style="background-color: #FF3B3F;color: white;border-radius: 50px; margin-top: 2vh;font-size: 2.5vh;margin: 20px; padding: 10px;">
+                <input type="submit" value="Submit the rating" style="background-color: #FF3B3F;color: white; margin-top: 2vh;font-size: 2.5vh;margin: 20px; padding: 10px;">
             </div>
         </form>    
 
@@ -87,20 +98,6 @@
 
     <?php
             }
-        }
-        else
-        {
-    ?>
-
-        <div style="margin-top: 15vh;">
-            <img src="./img/login.png" style=" display: block; margin-left: auto; margin-right: auto; width: 900px; max-width: 80vw;"/>
-            <div style="color: #FF3B3F; text-align: center; font-size: 2.5vh;">
-                Login first to go ahead with rating food.
-            </div>
-        <div>
-
-
-    <?php
         }
     ?>    
    

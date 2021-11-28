@@ -19,7 +19,7 @@ if(isset($_POST['yr']) && isset($_POST['batch']) && isset($_POST['rollno']))
       {$_SESSION['yr']=$yr;
        $_SESSION['batch']=$batch;
        $_SESSION['roll']=$rollno;
-       echo "<script>window.location.href='javascript:history.go(-1)';</script>"; }
+       echo "<script>window.location.href='./complaint.php';</script>"; }
      else
       {echo "<script>window.alert('Invalid Credentials. Please try again.');</script>";     
         echo "<script>window.location.href='javascript:history.go(-1)';</script>";  

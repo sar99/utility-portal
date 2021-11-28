@@ -12,15 +12,21 @@
 <body style="font-family: 'Poppins', sans-serif;">
 
     <?php
-        require_once("header.php");
-
-        if(isset($_SESSION['yr']) && isset($_SESSION['batch']) && isset($_SESSION['roll']) )
+        if(!(isset($_SESSION['yr']) && isset($_SESSION['batch']) && isset($_SESSION['roll']) ))
         {
     ?>
+        <script>window.location.href='../';</script>
+    <?php
 
+        }
+        else
+        {
+            require_once("header.php");
+    ?>
 
+    <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 5vh; font-size: 2.8vh;"> File a Complaint </div>
 
-    <form action="filecomplaint.php" method="post" style="width: 80vw;margin: auto; margin-top: 10vh;">
+    <form action="filecomplaint.php" method="post" style="width: 80vw;margin: auto; margin-top: 3vh;">
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Complaint Title</label>
             <div class="col-sm-10">
@@ -74,7 +80,7 @@
     </form>
 
 
-    <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 5vh; font-size: 2.8vh;"> Previous Complaints </div>
+    <div style="width: 100vw; text-align: center;font-decoration: bold; margin-top: 7vh; font-size: 2.8vh;"> Previous Complaints </div>
 
 
     <table class="table" style="width: 85vw; margin: auto;margin-top: 1vh; ">
@@ -109,7 +115,6 @@
 
                     $sql="SELECT * FROM complaints WHERE isfemale = '$isfemale' AND hostel = '$hostel' AND room = '$room' ORDER BY date DESC";
 
-                    // echo "<script>window.alert('" . $title . $description . $required . $isfemale . $hostel . $room . $compStatus ."');</script>";     
                     $result=mysqli_query($conn,$sql);
                     if($result==false)
                     echo "<script>window.alert('Database Fetch failed due to some reason. Please try again.');</script>"; 
@@ -141,24 +146,6 @@
             ?>
         </tbody>
     </table>
-
-
-    <?php
-
-        }
-        else
-        {
-
-    ?>
-
-        <div style="margin-top: 15vh;">
-            <img src="./img/login.png" style=" display: block; margin-left: auto; margin-right: auto; width: 900px; max-width: 80vw;"/>
-            <div style="color: #FF3B3F; text-align: center; font-size: 2.5vh;">
-                Login first to go ahead with filing a complaint.
-            </div>
-        <div>
-
-
     <?php
         }
     ?>    

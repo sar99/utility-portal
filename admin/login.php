@@ -16,7 +16,7 @@ if(isset($_POST['adminid']) )
      if($num_rows!=0)
       {$_SESSION['adminid']=$adminid;
 
-       echo "<script>window.location.href='javascript:history.go(-1)';</script>"; }
+       echo "<script>window.location.href='./recommendation.php';</script>"; }
      else
       {echo "<script>window.alert('Invalid Credentials. Please try again.');</script>";     
         echo "<script>window.location.href='javascript:history.go(-1)';</script>";  
